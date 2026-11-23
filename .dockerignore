@@ -1,0 +1,5 @@
+target/
+.git/
+m2repo/
+.idea/
+.vscode/

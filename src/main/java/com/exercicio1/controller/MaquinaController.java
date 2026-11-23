@@ -32,4 +32,15 @@ public class MaquinaController {
     public Maquina cadastrar(@RequestBody Maquina maquina) {
         return service.cadastrar(maquina);
     }
+
+    @PutMapping("/{id}")
+    public Maquina atualizar(@PathVariable Long id, @RequestBody Maquina maquina) {
+        return service.atualizar(id, maquina);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void remover(@PathVariable Long id) {
+        service.remover(id);
+    }
 }

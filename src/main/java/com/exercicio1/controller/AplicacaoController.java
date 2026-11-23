@@ -1,4 +1,5 @@
 package com.exercicio1.controller;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,4 +26,3 @@ public class AplicacaoController {
         return Map.of("versao", "1.0.0");
     }
 }
-

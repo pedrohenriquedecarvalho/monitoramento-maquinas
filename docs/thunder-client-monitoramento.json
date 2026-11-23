@@ -1,0 +1,301 @@
+{
+  "info": {
+    "name": "Monitoramento de Máquinas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "01 GET / (página inicial) -> 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "02 GET /status -> 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/status",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "status"
+          ]
+        }
+      }
+    },
+    {
+      "name": "03 GET /versao -> 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/versao",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "versao"
+          ]
+        }
+      }
+    },
+    {
+      "name": "04 POST /maquinas/cadastro -> 201",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/maquinas/cadastro",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "maquinas",
+            "cadastro"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Máquina CNC 01\",\n  \"tipo\": \"CNC\",\n  \"setor\": \"Usinagem\",\n  \"status\": \"em operação\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "05 GET /maquinas -> 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/maquinas",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "maquinas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "06 GET /maquinas/1 -> 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/maquinas/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "maquinas",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "07 PUT /maquinas/1 -> 200",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/maquinas/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "maquinas",
+            "1"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Máquina CNC 01\",\n  \"tipo\": \"CNC\",\n  \"setor\": \"Usinagem\",\n  \"status\": \"parada\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "08 POST /producao -> 201",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/producao",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "producao"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"maquinaId\": 1,\n  \"consumoKw\": 12.5,\n  \"horarioAcionamento\": \"08:30\",\n  \"pecasProduzidas\": 150\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "09 GET /producao -> 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/producao",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "producao"
+          ]
+        }
+      }
+    },
+    {
+      "name": "10 GET /producao/maquina/1 -> 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/producao/maquina/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "producao",
+            "maquina",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "11 PUT /producao/1 -> 200",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/producao/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "producao",
+            "1"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"maquinaId\": 1,\n  \"consumoKw\": 20.0,\n  \"horarioAcionamento\": \"09:00\",\n  \"pecasProduzidas\": 300\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "12 DELETE /producao/1 -> 204",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/producao/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "producao",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "13 DELETE /maquinas/1 -> 204",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/maquinas/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "maquinas",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "14 GET /maquinas/99999 -> 404",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/maquinas/99999",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "maquinas",
+            "99999"
+          ]
+        }
+      }
+    }
+  ]
+}

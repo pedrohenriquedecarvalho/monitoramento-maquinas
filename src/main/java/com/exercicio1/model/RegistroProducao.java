@@ -2,6 +2,7 @@ package com.exercicio1.model;
 
 public class RegistroProducao {
 
+    private Long id;
     private Long maquinaId;
     private Double consumoKw;
     private String horarioAcionamento;
@@ -9,12 +10,16 @@ public class RegistroProducao {
 
     public RegistroProducao() {}
 
-    public RegistroProducao(Long maquinaId, Double consumoKw, String horarioAcionamento, Integer pecasProduzidas) {
+    public RegistroProducao(Long id, Long maquinaId, Double consumoKw, String horarioAcionamento, Integer pecasProduzidas) {
+        this.id = id;
         this.maquinaId = maquinaId;
         this.consumoKw = consumoKw;
         this.horarioAcionamento = horarioAcionamento;
         this.pecasProduzidas = pecasProduzidas;
     }
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public Long getMaquinaId() { return maquinaId; }
     public void setMaquinaId(Long maquinaId) { this.maquinaId = maquinaId; }
